@@ -3,8 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 var publicPath = 'http://localhost:8880';
+var config = require('./config.js')
 
-module.exports = {
+ var webpackConfig = {
   entry: {
     detail: ['./main.js', hotMiddlewareScript]
   },
@@ -34,12 +35,26 @@ module.exports = {
   devtool: '#eval-source-map',
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()/*,
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-/*      favicon: 'favicon.ico',*/
+      filename: 'detail.html',
       template: './resources/tpl/detail.jade',
-      title: 'Jade demo'
-    })
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'cheap.html',
+      template: './resources/tpl/detail_cheap.jade',
+    })*/
+    //使用循环方式new HtmlWebpackPlugin
   ]
 };
+
+module.exports = webpackConfig;
+
+var pages = config.pages;
+pages.forEach(function(pathname) {
+  var conf = {
+    filename: pathname + '.html',
+    template: './resources/tpl/' + pathname + '.jade'
+  };
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+})

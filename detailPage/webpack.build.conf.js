@@ -3,8 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = './';
+var config = require('./config.js')
 
-module.exports = {
+var webpackConfig = {
   entry: {
     detail: './main.js'
   },
@@ -52,13 +53,23 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(), //通过计算模块次数来分配模块
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
+/*    new HtmlWebpackPlugin({
       filename: 'index.html',
-/*      favicon: 'favicon.ico',*/
       template: './resources/tpl/detail.jade',
       title: 'Jade demo',
       minify: false //不压缩html文件
-    }),
+    }),*/
     new ExtractTextPlugin('css/custom.[hash:7].css')
   ]
 };
+
+module.exports = webpackConfig
+
+var pages = config.pages;
+pages.forEach(function(pathname) {
+  var conf = {
+    filename: pathname + '.html',
+    template: './resources/tpl/' + pathname + '.jade'
+  };
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+})
