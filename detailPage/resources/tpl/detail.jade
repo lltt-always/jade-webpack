@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        // 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；
+        meta(content='yes', name='apple-mobile-web-app-capable')
+        // 全屏显示
+        meta(name='apple-touch-fullscreen', content='yes')
+        // 不要让设备识别电话号码和邮箱地址
+        meta(content='telephone=no,email=no', name='format-detection')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+        // DNS预解析
+        meta(http-equiv='x-dns-prefetch-control', content='on')
+        link(href="./common/css/reset.css", rel="stylesheet")
+        link(href="./common/css/common.css", rel="stylesheet")
+        link(href="./common/dep/swiper/swiper.min.css", rel="stylesheet")
+        link(href="./common/dep/ECar/mSelect/css/mSelect.css", rel="stylesheet")
+        title
+    body
+        include detail_menu.jade
+        include detail_menu_category.jade
+        include detail_head.jade
+        include detail_promote.jade  
+        include detail_select.jade
+        include detail_main.jade
+        include detail_cart.jade
+        script(src="http://s1.cximg.com/cxlib/assets/js/zepto/zepto-1.1.4.min.js", type="text/javascript")
+        script(src="http://s1.cximg.com/cxlib/assets/js/zepto/touch.js")
+        script(src="./common/dep/swiper/swiper.min.js", type="text/javascript")
+        script(src="./common/js/remset.js", type="text/javascript")
+        script(src="./common/dep/ECar/mSelect/mSelect.js")

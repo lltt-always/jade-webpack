@@ -1,0 +1,125 @@
+@charset 'UTF-8';
+@import "../../../common/sass/_functions.scss";
+@import "../../../common/sass/_variables.scss";
+
+/*精彩生活商城，菜单展开*/
+.menu-wapper{
+    width: 100%;
+    height: px2rem(100);
+    position:fixed;
+    z-index:100000;
+    transform: translate3d(-100%, 0, 0);
+}
+.menu-btn{
+    width: px2rem(64);
+    height: px2rem(70);
+    display:block;
+    position:fixed;
+    top:px2rem(15);
+    right:0;
+    background:#404143 url(/img/meun-btn.png) no-repeat center center;
+    background-size:px2rem(39) px2rem(39);
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    z-index:100001;
+}
+.menu
+{
+    font-size: px2rem(24);
+    position: relative;
+    z-index: 10;
+    top: 0;
+    display: flex;
+    width: px2rem(750);
+    height: px2rem(100);
+    padding: px2rem(12) 0 px2rem(10);
+    color: $_fff;
+    border-top: $border;
+    background-color: $_404042;
+    .tag
+    {
+        display: flex;
+        flex-direction: column;
+        width: px2rem(750/4.5);
+        color: $_fff;
+        justify-content: space-around;
+        align-items: center;
+        .menu_title
+        {
+            font-size: px2rem(24);
+            line-height: px2rem(21);
+
+            display: inline-block;
+        }
+        .menu_icon
+        {
+            margin-bottom: px2rem(10);
+
+            background-image: url(/img/menu_icon.png);
+            background-repeat: no-repeat;
+            background-size: 3.14667rem .61333rem;
+        }
+        .menu_icon_index
+        {
+            width: .61333rem;
+            height: .61333rem;
+
+            background-position: 0 0;
+        }
+        .menu_icon_category
+        {
+            width: .61333rem;
+            height: .61333rem;
+
+            background-position: -1.54667rem 0;
+        }
+        .menu_icon_cart
+        {
+            width: .58667rem;
+            height: .61333rem;
+
+            background-position: -2.36rem 0;
+        }
+        .menu_icon_mine
+        {
+            width: .53333rem;
+            height: .61333rem;
+
+            background-position: -.81333rem 0;
+        }
+    }
+}
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+.slideOutRight {
+  animation-name: slideOutRight;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInRight {
+  animation-name: slideInRight;
+}

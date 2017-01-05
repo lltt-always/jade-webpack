@@ -1,0 +1,71 @@
+@charset 'UTF-8';
+@import "../../../common/sass/_functions.scss";
+@import "../../../common/sass/_variables.scss";
+
+
+.cannot-scroll
+{
+    overflow: hidden;
+
+    height: 100%;
+}
+.category
+{
+    display: none;
+    .masking
+    {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+
+        width: px2rem(750);
+        height: 100%;
+
+        opacity: .8;
+        background-color: $_000;
+    }
+    .float-tier
+    {
+        position: fixed;
+        z-index: 1000;
+        bottom: 0;
+        left: 0;
+
+        overflow-y: auto;
+
+        width: px2rem(750);
+        min-height: px2rem(800);
+        max-height: 80%;
+        padding: px2rem(10) px2rem(40) px2rem(40);
+
+        background-color: $_fff;
+        .comb
+        {
+            .main,
+            .sub
+            {
+                line-height: px2rem(50);
+            }
+            .main,
+            .item
+            {
+                font-size: px2rem(28);
+
+                display: inline-block;
+
+                color: $_333;
+            }
+            .item
+            {
+                margin-left: px2rem(60);
+            }
+            .current{
+                border: 1px solid currentColor;
+                padding: 0 px2rem(10);
+                color: $_03a9f4;
+                border-radius: px2rem(5);
+            }
+        }
+    }
+}

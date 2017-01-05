@@ -1,0 +1,76 @@
+@import "../../../common/sass/_functions.scss";
+@import "../../../common/sass/_variables.scss";
+/* 促销 */
+.promote{
+  background: $_fff;
+  border-top: 1px solid $_c8c8cc; 
+  border-bottom: 1px solid $_c8c8cc;
+  padding: pxToRem(30px) pxToRem(28px);
+  margin-bottom: pxToRem(20px);  	
+}
+.pro-con{
+	font-size: pxToRem(24px);
+	display: -webkit-box;
+	.tip-text{
+	   padding: pxToRem(5px); 
+	   background: $_ed888c;
+	   font-size: pxToRem(20px);
+	   display: inline-block;
+	   color: $_fff;
+	   border-radius: 2px;
+	   margin:0 pxToRem(10px) 0 pxToRem(20px);
+	   vertical-align: top;    	
+	}
+	.sale-txt{
+		color: $_000;
+		display: inline-block;
+		span{
+			display: block;
+			margin-bottom: pxToRem(10px);
+		&:first-child{
+           margin-bottom: pxToRem(25px);  
+	 	 }	  
+		}
+	} 
+}
+.suit{
+   margin-top: pxToRem(5px);
+   font-size: pxToRem(24px);
+   display: -webkit-box;
+   em{
+   	 color: $_e51c23; 
+   } 	
+}
+.set{
+	margin-left: pxToRem(18px);
+	max-width: pxToRem(580px);
+	overflow-x:auto;
+	white-space:nowrap;
+	display: -webkit-box;  
+	.set-con{
+	   margin-right: pxToRem(25px); 
+	}
+	.s-one{
+	  margin: pxToRem(20px) 0;
+	  font-size: pxToRem(20px); 	
+	}
+  .s-item{
+      width:pxToRem(122px); 
+  	  display: inline-block;
+	  	.pic{
+	  	  width: pxToRem(120px);
+		  height: pxToRem(120px);
+		  border: 1px solid #f0f0f0;	
+	  	}
+    }
+    .add{
+      padding: 0;
+      width: auto;
+      margin: pxToRem(-46px) 0 0; 
+      span{
+        display: inline-block;
+        color: #939393;
+        font-size: pxToRem(20px);  	
+      }	
+    }	
+}

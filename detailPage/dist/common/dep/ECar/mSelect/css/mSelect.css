@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/***** add by fuyun px-rem ******/
+/***** end by fuyun px-rem ******/
+/***** add by duanwanyu ******/
+.select_area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none; }
+  .select_area .select_msak {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); }
+  .select_area .select_container {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 10.26667rem;
+    background-color: #fff; }
+
+.select_container .select_header {
+  font-size: 0.4rem;
+  height: 1.06667rem;
+  padding: 0.33333rem 0.4rem;
+  text-align: center;
+  color: #666; }
+
+.select_container .select_result {
+  overflow: hidden;
+  height: 0.53333rem; }
+
+.select_container .select_list {
+  overflow: hidden;
+  margin-top: -1px;
+  padding: 0.46667rem 0 0.46667rem 0.33333rem;
+  border-top: 1px solid #ccc;
+  -webkit-overflow-scrolling: touch; }
+
+.select_header i {
+  float: right;
+  -webkit-transform: scale(2.5);
+      -ms-transform: scale(2.5);
+          transform: scale(2.5); }
+
+.select_result li {
+  font-size: 0.34667rem;
+  float: left;
+  height: 0.52rem;
+  margin: 0 0.33333rem 0.2rem;
+  color: #333;
+  border-bottom: 2px solid #fff; }
+  .select_result li a {
+    text-decoration: none;
+    color: #333; }
+
+.select_result .current {
+  color: #03a9f4;
+  border-bottom-color: currentColor; }
+  .select_result .current a {
+    color: #03a9f4; }
+
+.select_list ul {
+  display: none;
+  overflow-y: scroll;
+  height: 8.33333rem; }
+
+.select_list .active {
+  display: block; }
+
+.select_list li {
+  font-size: 0.34667rem;
+  line-height: 0.66667rem;
+  padding-bottom: 0.4rem;
+  color: #333; }
+  .select_list li p {
+    max-height: 100%; }
+
+.select_list .current p {
+  color: #03a9f4; }
+  .select_list .current p::after {
+    margin-left: 0.26667rem;
+    content: '√';
+    -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+            transform: scale(1.5);
+    color: #03a9f4; }

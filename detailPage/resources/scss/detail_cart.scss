@@ -1,0 +1,63 @@
+@import "../../../common/sass/_functions.scss";
+@import "../../../common/sass/_variables.scss";
+.cart{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin-top: pxToRem(20px);
+	border-top: $border;
+	padding-left: pxToRem(30px);
+	height: pxToRem(80px);
+	background: $_fff;
+	overflow: hidden;
+	z-index: 10;
+	.icon_cart{
+		display: inline-block;
+		width: pxToRem(36px);
+		height: pxToRem(35px);
+		background: url(/img/cart.png) no-repeat;
+		background-size: pxToRem(36px) pxToRem(35px);
+		position: relative;
+		top: pxToRem(-10px);
+	}
+	.cart_num{
+		font-size: pxToRem(12px);
+		background: $_e51c23;
+		border: 1px solid $_fff;
+		border-radius: 50%;
+		position: absolute;
+		width: pxToRem(18px);
+		height: pxToRem(18px);
+		line-height: pxToRem(18px);
+		text-align: center;
+		top: pxToRem(-5px);
+		right: pxToRem(-7px);
+		color: $_fff;
+	}
+	button{
+		border:0;
+		font-size: pxToRem(30px);
+		width: pxToRem(220px);
+		height: pxToRem(80px);
+		float: right;
+	}
+	.cart_add{
+		background: $_e51c23;
+		color: $_fff;
+	}
+	.cart_buy{
+		background: $_f3dfe0;
+		color: $_e51c23;
+	}
+	.cart_add.none{
+		background: $_cbcbcb;
+	}
+	.cart_buy.none{
+		border-top: $border;
+		border-right: 2px solid $_cbcbcb;
+		border-bottom: 2px solid $_cbcbcb;
+		color: $_cbcbcb;
+		background: $_fff;
+	}
+}

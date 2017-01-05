@@ -1,0 +1,129 @@
+@import "../../../common/sass/_functions.scss";
+@import "../../../common/sass/_variables.scss";
+$fs: pxToRem(30px) pxToRem(24px);
+.select_block{
+	background: $_fff;
+	padding: pxToRem(30px) pxToRem(30px) pxToRem(10px);
+	margin-bottom: pxToRem(20px);
+	border-top: $border;
+	border-bottom: $border;
+	.h_box{
+		margin-bottom: pxToRem(20px);
+		line-height: 1;
+	}
+	.h_box:first-child{
+		margin-bottom: pxToRem(30px);
+	}
+	.h_box:first-child label{
+		padding-top: 0;
+	}
+	label{
+		display: inline-block;
+		color: $_999;
+		font-size: nth($fs,2);
+		margin-right: pxToRem(20px);
+		vertical-align: top;
+		white-space: nowrap;
+		padding-top: pxToRem(8px);
+	}
+	.goodName{
+		font-size: nth($fs,2);
+		max-width: pxToRem(548px);
+		color: $_000;
+		.goodnum{
+			margin-left: pxToRem(20px);
+		}
+	}
+	ul.flex_1{
+		max-width: pxToRem(548px);
+		font-size: 0;
+	}
+	.select{
+		padding: pxToRem(8px) pxToRem(25px);
+		max-width: pxToRem(548px);
+		font-size: nth($fs,2);
+		display: inline-block;
+		border: 1px solid $_ccc;
+		margin-right: pxToRem(20px);
+	}
+	.select_active{
+		color: $_e51c23;
+		background: $_fff;
+		border: 2px solid $_e51c23;
+	}
+	.lose{
+		color: $_ccc;
+	}
+	.btn_number{
+		// display: inline-block;
+		border: $border;
+		height: pxToRem(40px);
+		line-height: pxToRem(40px);
+		background: $_fff;
+		.disabled{
+			color: $_ccc;
+		}
+		a {
+			float: left;
+			text-align: center;
+			width: pxToRem(35px);			
+			font-size: nth($fs,2);
+			color: $_999;
+			text-decoration: none;
+		}
+		input {
+			width: pxToRem(70px);
+			border-left: $border;
+			border-right: $border;
+			text-align: center;
+			float: left;
+			line-height: pxToRem(38px);
+			font-size: nth($fs,2);
+		}
+	}
+}
+//配送运费信息
+.distribution_info{
+	padding: pxToRem(30px) 0 0 pxToRem(30px);
+	.flex_1,{
+		font-size: nth($fs,2);
+	}
+	.h_box{
+		margin-bottom: pxToRem(30px);
+		position: relative;
+	}
+	.fr{
+		font-size: nth($fs,2);
+		color: $_03a9f4;
+		position: absolute;
+		top: 0;
+		right: pxToRem(30px);
+	}
+	label{
+		padding-top: 0;
+	}
+	.select_tips{
+		padding-top: pxToRem(30px);
+		border-top: $border;
+		.flex_1{
+           line-height: pxToRem(34px);  
+		}
+	}
+	.freight{
+		p{
+			margin-top: pxToRem(8px);
+			color: $_666;
+			line-height: pxToRem(34px); 
+		}
+	}
+	.pd-r{
+		padding-right: pxToRem(175px); 
+	}
+	em{
+		line-height: pxToRem(34px);
+	}
+	.txt-h{
+		line-height: pxToRem(34px);
+		margin-top:pxToRem(-4px); 
+	}	
+}
