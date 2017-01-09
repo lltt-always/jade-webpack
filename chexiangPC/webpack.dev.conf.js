@@ -2,12 +2,12 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
-var publicPath = 'http://localhost:8880';
+var publicPath = 'http://localhost:8880/';
 var config = require('./config.js')
 
  var webpackConfig = {
   entry: {
-    detail: ['./main.js', hotMiddlewareScript]
+    bundle: ['./main.js', hotMiddlewareScript]
   },
   output: {
     path: path.resolve(__dirname, 'static'),

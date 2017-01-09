@@ -52,7 +52,4 @@
 		};
 		window.dpr = dpr;
 		window.rem = rem;
-
-    
-	
 }) 

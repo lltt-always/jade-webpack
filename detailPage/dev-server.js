@@ -7,7 +7,7 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpackDevConfig = require('./webpack.dev.conf.js');
 
-var port = 8880
+var port = 8890
 rm('-rf', 'static/');
 mkdir('static');
 cp('-R', '../common/', 'static');
