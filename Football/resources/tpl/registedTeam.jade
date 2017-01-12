@@ -1,0 +1,28 @@
+extends header.jade
+
+block pagetitle
+    title 已报名球队
+
+block pagehead
+    header
+        div.title
+            div.title_img
+                span 已报名球队
+block content
+    main#registed_team
+        - var teams=[{shop_name:'chexiangjia',team_name:'AC米兰',team_members:['CF 张伟栋', 'CF 张伟栋']}, {shop_name:'chexiangjia',team_name:'AC米兰',team_members:['CF 张伟栋', 'CF 张伟栋','CF 张伟栋', 'CF 张伟栋','CF 张伟栋', 'CF 张伟栋','CF 张伟栋', 'CF 张伟栋','CF 张伟栋', 'CF 张伟栋']}, {shop_name:'chexiangjia',team_name:'AC米兰',team_members:['CF 张伟栋', 'CF 张伟栋']}]
+        div.teamlist
+            each team, index in teams
+                div.team
+                    div.logo
+                        img(src='./img/logo.png')
+                    div.shop_name #{team.shop_name}
+                    div.team_name #{team.team_name}
+                    ul.memberlist
+                        each member in team.team_members
+                            li.member #{member}
+                if index<teams.length-1
+                    div.bottom_line
+    
+        
+    

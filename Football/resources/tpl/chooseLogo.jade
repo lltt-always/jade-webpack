@@ -1,0 +1,18 @@
+extends header.jade
+
+block pagetitle
+    title 选择队徽
+
+block pagehead
+    header
+        div.title
+            div.title_img
+                span 选择队徽
+
+block content
+    main#choose_logo
+        ul.logolist
+            - for (var i=0; i<9; i++) {
+                li.logo
+                    img(src='../img/logo.png')
+            - }

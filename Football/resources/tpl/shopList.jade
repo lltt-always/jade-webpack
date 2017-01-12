@@ -1,0 +1,21 @@
+extends header.jade
+
+block pagetitle
+    title 门店列表
+
+block pagehead
+    header
+        div.title
+            div.title_img
+                span 门店列表
+
+block content
+    main#shoplist
+        - var shop={name:'上海黄帽子吴中路店', addr:'上海市闵行区吴中路500号'}
+        ul.shoplist
+            - for (var i = 0; i <9; i++) {
+                li.shop_detail
+                    p.shop_name #{shop.name}
+                    p.shop_addr #{shop.addr}
+            - }
+            

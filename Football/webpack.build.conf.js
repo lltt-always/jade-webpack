@@ -4,11 +4,22 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = './';
 var config = require('./config.js')
+var glob = require('glob');
+
+
+var files = glob.sync("./resources/js/*.js")
+var entrys = {};
+files.forEach(function(val){
+  var name = val.slice(15, -3);
+  entrys[name] = val;
+})
+
 
 var webpackConfig = {
-  entry: {
+  entry: entrys,
+  /*{
     detail: './main.js'
-  },
+  },*/
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: publicPath,
@@ -69,7 +80,8 @@ var pages = config.pages;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',
-    template: './resources/tpl/' + pathname + '.jade'
+    template: './resources/tpl/' + pathname + '.jade',
+    minify: false
   };
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 })

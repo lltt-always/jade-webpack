@@ -1,0 +1,17 @@
+@import "../../../common/sass/_functions.scss";
+@import "./header.scss";
+
+#shoplist{
+	.shoplist{
+		.shop_detail{
+			.shop_name{
+				font-size: pxToRem(30px);
+				color: #fff;
+			}
+			.shop_addr{
+				font-size: pxToRem(24px);
+				color: #fff;
+			}
+		}
+	}
+}

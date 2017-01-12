@@ -3,12 +3,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 var publicPath = 'http://localhost:8880/';
-var config = require('./config.js')
+var config = require('./config.js');
+var glob = require('glob');
 
- var webpackConfig = {
-  entry: {
+
+var files = glob.sync("./resources/js/*.js")
+var entrys = {};
+var pages = [];
+files.forEach(function(val){
+  var name = val.slice(15, -3);
+  pages.push(name);
+  entrys[name] = [val, hotMiddlewareScript];
+})
+
+var webpackConfig = {
+  entry: entrys,
+  /*{
     bundle: ['./main.js', hotMiddlewareScript]
-  },
+  },*/
   output: {
     path: path.resolve(__dirname, 'static'),
     publicPath: publicPath,
@@ -35,7 +47,9 @@ var config = require('./config.js')
   devtool: '#eval-source-map',
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()/*,
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('common.js', pages)
+    /*,
     new HtmlWebpackPlugin({
       filename: 'detail.html',
       template: './resources/tpl/detail.jade',
@@ -50,7 +64,6 @@ var config = require('./config.js')
 
 module.exports = webpackConfig;
 
-var pages = config.pages;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',

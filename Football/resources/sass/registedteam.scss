@@ -1,0 +1,61 @@
+@import "../../../common/sass/_functions.scss";
+@import "./header.scss";
+
+#registed_team{
+	padding-top: pxToRem(20px);
+	.teamlist{
+		.team{
+			padding: pxToRem(35px) 0;
+			clear: both;
+			text-align: center;
+			.logo{
+				background: url('/img/logobackground.png');
+				background-repeat: no-repeat;
+				width: pxToRem(156px);
+				height: pxToRem(156px);
+				background-size: 100%;
+				margin: 0 auto;
+				text-align: center;
+				img {
+					margin-top: pxToRem(16px);
+					width: pxToRem(124px);
+					height: pxToRem(125px);
+				}
+			}
+			.shop_name{
+				margin-top: pxToRem(30px);
+				color: #fff;
+				font-size: pxToRem(30px);
+				line-height: pxToRem(40px);
+			}
+			.team_name{
+				font-size: pxToRem(30px);
+				line-height: pxToRem(40px);
+				color: #fff;
+			}
+			.memberlist{
+				margin-top: pxToRem(20px);
+				overflow: hidden;
+				margin-left: pxToRem(45px);
+				.member{
+					line-height: pxToRem(54px);
+					color: #fff;
+					font-size: pxToRem(30px);
+					float: left;
+					width: pxToRem(170px);
+					text-align: left;
+				}
+			}
+		}
+		.bottom_line{
+			height: 10px;
+			background: url('/img/titleline.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            text-align: center;
+		}
+	}
+
+}
+
