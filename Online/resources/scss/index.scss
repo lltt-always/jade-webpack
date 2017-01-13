@@ -72,3 +72,22 @@
 		}
 	}
 } */
+
+#seckill {
+	.goods_info{
+		.goods_name{
+			font-size: pxToRem(14px);
+		}
+		.goods_price{
+			.after_discount{
+				font-size: pxToRem(16px);
+			}
+			.discount{
+				font-size: pxToRem(10px);
+			}
+			.mail{
+				font-size: pxToRem(10px);
+			}
+		}
+	}
+}
