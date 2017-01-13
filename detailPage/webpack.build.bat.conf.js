@@ -3,24 +3,12 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = './';
-var glob = require('glob');
-
-
-var files = glob.sync("./resources/js/*.js")
-var entrys = {};
-var pages = [];
-files.forEach(function(val){
-  var name = val.slice(15, -3);
-  pages.push(name);
-  entrys[name] = val;
-})
-
+var config = require('./config.js')
 
 var webpackConfig = {
-  entry: entrys,
-  /*{
+  entry: {
     detail: './main.js'
-  },*/
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: publicPath,
@@ -36,9 +24,9 @@ var webpackConfig = {
           pretty: true //不压缩html文件
         }
       },
-      {//为避免类名重复问题给类名添加hash值后缀
+      {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&localIdentName=[local]_[hash:5]!sass-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
       }/*,
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -71,18 +59,17 @@ var webpackConfig = {
       title: 'Jade demo',
       minify: false //不压缩html文件
     }),*/
-    new webpack.optimize.CommonsChunkPlugin('common.[hash:7].js', pages),
     new ExtractTextPlugin('css/custom.[hash:7].css')
   ]
 };
 
 module.exports = webpackConfig
 
+var pages = config.pages;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',
-    template: './resources/tpl/' + pathname + '.jade',
-    minify: false
+    template: './resources/tpl/' + pathname + '.jade'
   };
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 })

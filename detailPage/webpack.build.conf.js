@@ -3,7 +3,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = './';
-var config = require('./config.js')
+var config = require('./config.js');
+var glob = require("glob");
 
 var webpackConfig = {
   entry: {
@@ -26,7 +27,7 @@ var webpackConfig = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules!sass-loader'),
       }/*,
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -65,11 +66,35 @@ var webpackConfig = {
 
 module.exports = webpackConfig
 
-var pages = config.pages;
+var pages = entries('./resources/tpl/*.debug.jade');//config.pages;
+
+function entries (globPath, tree) {
+    var files = glob.sync(globPath);
+    var entries = {page:[]}, entry, dirname, basename;
+
+    for (var i = 0; i < files.length; i++) {
+        entry = files[i];
+        //dirname = path.dirname(entry);//获取路径中的目录名
+        basename = path.basename(entry, '.jade');//获取路径中文件名,后缀是可选的，如果加，请使用'.ext'方式来匹配，则返回值中不包括后缀名
+        projectName = basename;
+        entries.page.push(basename);
+    }
+    return entries;
+};
+
+for(var j = 0; j < pages.page.length; j++){
+  var conf = {
+    filename: path.basename(pages.page[j], '.debug') + '.html',
+    template: './resources/tpl/' + pages.page[j] + '.jade'
+  };
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+};
+
+/*var pages = config.pages;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',
     template: './resources/tpl/' + pathname + '.jade'
   };
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
-})
+})*/

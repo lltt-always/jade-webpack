@@ -10,7 +10,7 @@ var webpackDevConfig = require('./webpack.dev.conf.js');
 var port = 8880
 rm('-rf', 'static/');
 mkdir('static');
-cp('-R', '../common/', 'static');
+cp('-R', './resources/common/', 'static');
 cp('-R', './resources/img/', 'static/img/');
 
 var app = express()

@@ -78,7 +78,7 @@ $wide-screen: "(min-width: #{$max-breakpoint}px)";
 }
 
 /***** add by fuyun px-rem ******/
-@function pxToRem($value, $base:375) {
+@function pxToRem($value, $base:750) {  
   @if unit($value) == "px" or unit($value) == "" {
     @return (strip-unit($value) / ($base / 10)) * 1rem;
   }@else {

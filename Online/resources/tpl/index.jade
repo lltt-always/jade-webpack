@@ -2,10 +2,15 @@ doctype html
 html
     head
         meta(charset='utf-8')
-        meta(name='viewport' content='initial-scale=1')
+        meta(content='yes', name='apple-mobile-web-app-capable')
+        // 全屏显示
+        meta(name='apple-touch-fullscreen', content='yes')
+        // 不要让设备识别电话号码和邮箱地址
+        meta(content='telephone=no,email=no', name='format-detection')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
         title 秒杀页
         style
-            include ../css/reset.css
+            include ../common/css/reset.css
     body
         main#seckill
             div.goods_imgs
@@ -13,11 +18,12 @@ html
             div.goods_info
                 div.goods_name 曼秀雷敦男士冰爽控油醒肤
                 div.goods_price
-                    span.after_discount ￥ 298.00
+                    span.after_discount ￥298.00
                     span.discount 已省98
                     span.mail 全国包邮
-            div.goods_count
-                span.sold 已售<em>251</em>件  (库存还剩<em>19</em>件）
+                div.divideline
+                div.goods_count
+                    span.sold 已售<em>251</em>件  (库存还剩<em>19</em>件）
             div.goods_limit
                 span 限购数量
                 span 单个ID限购1件
@@ -33,5 +39,13 @@ html
                         主要包括更换机油和机油滤芯。
                         小保养的间隔：小保养的时间取决于所用机油和机油滤芯的有效时间或里程。
             div.goods_time
+                span 剩余时间
+                    em.time 00
+                    |时
+                    em.time 00
+                    |分
+                    em.time 00
+                    |秒
+                button 已达购买上限
         script
-            include ../../../common/js/remset.js
+            include ../common/js/remset.js

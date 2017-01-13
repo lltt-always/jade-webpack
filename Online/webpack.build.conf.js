@@ -3,14 +3,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var publicPath = './';
-var config = require('./config.js')
 var glob = require('glob');
 
 
 var files = glob.sync("./resources/js/*.js")
 var entrys = {};
+var pages = [];
 files.forEach(function(val){
   var name = val.slice(15, -3);
+  pages.push(name);
   entrys[name] = val;
 })
 
@@ -76,7 +77,6 @@ var webpackConfig = {
 
 module.exports = webpackConfig
 
-var pages = config.pages;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',

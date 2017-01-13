@@ -1,30 +1,56 @@
 @import "./_functions.scss";
 
-/* #seckill {
+@mixin text_overflow ($width) {
+	width: $width;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#seckill {
+	background-color: #f1f1f1;
 	.goods_imgs{
-		img{}
+		background-color: #fff;
+		height: pxToRem(250px);
+		text-align: center;
+		border-bottom: pxToRem(1px) solid #c8c7cc;
+		img{
+			height: 100%;
+			width: auto;
+		}
 	}
 	.goods_info{
+		background-color: #fff;
+		padding: pxToRem(12px) pxToRem(15px);
 		.goods_name{
+			@include text_overflow(pxToRem(282px));
 			height: pxToRem(19px);
 			line-height: pxToRem(19px);
 			font-size: pxToRem(14px);
 		}
 		.goods_price{
+			margin: pxToRem(15px) 0 pxToRem(14px);
 			font-size: pxToRem(16px);
 			.after_discount{
+				display: inline-block;
 				color: #ff0000;
 				height: pxToRem(18px);
 				line-height: pxToRem(18px);
 				font-size: pxToRem(16px);
 			}
 			.discount{
+				display: inline-block;
+				margin-left: pxToRem(10px);
+				color: #fff;
 				height: pxToRem(12px);
 				line-height: pxToRem(12px);
 				font-size: pxToRem(10px);
 				background-color: #ff6600;
 			}
 			.mail{
+				float: right;
+				margin-top: pxToRem(7px);
+				display: inline-block;
 				background-color: #ff9600;
 				color: #fff;
 				font-size: pxToRem(10px);
@@ -32,18 +58,26 @@
 				line-height: pxToRem(12px);
 			}
 		}
-	}
-	.goods_count{
-		font-size: pxToRem(12px);
-		.sold{
-			line-height: pxToRem(14px);
+		.divideline{
+			height: pxToRem(1px);
+			background-color: #dedede;
+		}
+		.goods_count{
+			margin: pxToRem(10px) 0 pxToRem(12px);
 			font-size: pxToRem(12px);
-			em{
-				color: #ff8338;
+			.sold{
+				line-height: pxToRem(14px);
+				font-size: pxToRem(12px);
+				em{
+					color: #ff8338;
+				}
 			}
 		}
 	}
 	.goods_limit{
+		margin: pxToRem(15px) 0;
+		background-color: #fff;
+		padding: pxToRem(13px) pxToRem(16px) pxToRem(15px) pxToRem(15);
 		font-size: pxToRem(14px);
 		span{
 			color: #000;
@@ -60,9 +94,12 @@
 		}
 	}
 	.goods_detail{
+		background-color: #fff;
 		.title{
+			padding: pxToRem(12px) 0 pxToRem(15px) pxToRem(15px);
 			line-height: pxToRem(16px);
 			font-size: pxToRem(14px);
+			border-bottom: pxToRem(1px) solid #dedede;
 		}
 		.detailtext{
 			p{
@@ -71,23 +108,18 @@
 			}
 		}
 	}
-} */
-
-#seckill {
-	.goods_info{
-		.goods_name{
+	.goods_time{
+		font-size: pxToRem(14px);
+		span{
 			font-size: pxToRem(14px);
+			em{
+				color: #fff;
+				background-color: #000;
+			}
 		}
-		.goods_price{
-			.after_discount{
-				font-size: pxToRem(16px);
-			}
-			.discount{
-				font-size: pxToRem(10px);
-			}
-			.mail{
-				font-size: pxToRem(10px);
-			}
+		button{
+			font-size: pxToRem(18px);
 		}
 	}
 }
+
