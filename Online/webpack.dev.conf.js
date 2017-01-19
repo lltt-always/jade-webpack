@@ -6,20 +6,17 @@ var publicPath = 'http://localhost:8880/';
 var glob = require('glob');
 
 
-var files = glob.sync("./resources/js/*.js")
+var files = glob.sync("./resources/tpl/*.page.pug")
 var entrys = {};
 var pages = [];
 files.forEach(function(val){
-  var name = val.slice(15, -3);
+  var name = val.slice(16, -9);
   pages.push(name);
   entrys[name] = [val, hotMiddlewareScript];
 })
 
 var webpackConfig = {
   entry: entrys,
-  /*{
-    bundle: ['./main.js', hotMiddlewareScript]
-  },*/
   output: {
     path: path.resolve(__dirname, 'static'),
     publicPath: publicPath,
@@ -27,10 +24,10 @@ var webpackConfig = {
   },
   module: {
     loaders: [
-      { test: /\.jade$/, loader: 'jade' },
+      { test: /\.pug$/, loader: 'pug' },
       {
         test: /\.scss$/,
-        loaders: ["style-loader", "css-loader", "sass-loader"]
+        loader: 'style!css!sass'
       }/*,
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -42,6 +39,9 @@ var webpackConfig = {
         }
       }*/
     ]
+  },
+  sassLoader: {
+    sourceMap: true
   },
   devtool: '#eval-source-map',
   plugins: [
@@ -66,7 +66,7 @@ module.exports = webpackConfig;
 pages.forEach(function(pathname) {
   var conf = {
     filename: pathname + '.html',
-    template: './resources/tpl/' + pathname + '.jade'
+    template: './resources/tpl/' + pathname + '.page.pug'
   };
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 })

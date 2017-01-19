@@ -18,7 +18,7 @@
 	var docElWidth = docEl.clientWidth > 750 ? 750 : docEl.clientWidth;
 /*	document.body.style.width ="10rem";*/
 	dpr = window.devicePixelRatio || 1;
-	rem = docElWidth * dpr / 10;
+	rem = docElWidth * 2 / 10;
 	scale = 1 / dpr;
 	scale = scale.toFixed(3);
 

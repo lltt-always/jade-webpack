@@ -11,25 +11,31 @@ html
         title 秒杀页
         style
             include ../common/css/reset.css
+        style
+            include:scss ../scss/index.scss
     body
         main#seckill
             div.goods_imgs
                 img(src='../img/goods.png')
+                a.arrows(href='')
+                    img(src='../img/arrows.png')
+                a.ellipsis(href='')
+                    img(src='../img/ellipsis.png')
             div.goods_info
                 div.goods_name 曼秀雷敦男士冰爽控油醒肤
                 div.goods_price
                     span.after_discount ￥298.00
                     span.discount 已省98
-                    span.mail 全国包邮
-                div.divideline
+                    span.mail 全国包邮s
                 div.goods_count
                     span.sold 已售<em>251</em>件  (库存还剩<em>19</em>件）
             div.goods_limit
-                span 限购数量
-                span 单个ID限购1件
-                span.minus -
-                span.number 1
-                span.plus +
+                span.limit_reg1 限购数量
+                span.limit_reg2 单个ID限购1件
+                div.wrap_number
+                    a.minus -
+                    span.number 1
+                    a.plus +
             div.goods_detail
                 div.title 产品详情
                 div.detailtext 
@@ -39,13 +45,13 @@ html
                         主要包括更换机油和机油滤芯。
                         小保养的间隔：小保养的时间取决于所用机油和机油滤芯的有效时间或里程。
             div.goods_time
-                span 剩余时间
+                span 剩余时间&nbsp;
                     em.time 00
-                    |时
+                    |&nbsp;时&nbsp;
                     em.time 00
-                    |分
+                    |&nbsp;分&nbsp;
                     em.time 00
-                    |秒
+                    |&nbsp;秒
                 button 已达购买上限
         script
             include ../common/js/remset.js
