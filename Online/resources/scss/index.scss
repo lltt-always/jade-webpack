@@ -93,7 +93,7 @@
 		}
 		.goods_count{
 			margin-left: pxToRem(15px);
-			border-top: 1px solid $c_border2;
+			border-top: pxTorem(1px) solid $c_border2;
 			padding: pxToRem(10px) 0 pxToRem(12px) 0;
 			font-size: pxToRem(12px);
 			.sold{
